@@ -1,0 +1,466 @@
+/* ==========================================================================
+   SECTION 1: VARIABLE WARNA & DASAR CSS
+   ========================================================================== */
+:root {
+  --bg: #f4f7f5; /* Warna latar belakang utama halaman */
+  --surface: #fff; /* Warna latar kartu/kontainer */
+  --surface2: #eef3ef; /* Warna latar elemen sekunder/netral */
+  --text: #17221b; /* Warna teks utama */
+  --muted: #657268; /* Warna teks pudar/keterangan */
+  --line: #dce5de; /* Warna garis pembatas/border */
+  --accent: #1e8e5a; /* Warna hijau utama (tema/akses) */
+  --accent2: #146c44; /* Warna hijau gelap */
+  --danger: #c84747; /* Warna merah untuk status/pelanggaran */
+  --warn: #b77a17; /* Warna kuning/amber untuk status peringatan */
+  --shadow: 0 12px 35px rgba(24, 55, 38, 0.08); /* Efek bayangan halus */
+}
+
+/* Pengaturan umum untuk box model dan font aplikasi */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ==========================================================================
+   SECTION 2: HEADER & BRANDING
+   ========================================================================== */
+header {
+  height: 72px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.brand {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.role {
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface2);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   SECTION 3: LAYOUT UTAMA, HERO & SALDO
+   ========================================================================== */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 34px 5vw 60px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: flex-end;
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  color: var(--accent2);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  font-size: 34px;
+  line-height: 1.05;
+  margin: 8px 0;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0;
+}
+
+.balance {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  border-radius: 18px;
+  min-width: 210px;
+  box-shadow: var(--shadow);
+}
+
+.balance small {
+  color: var(--muted);
+}
+.balance strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   SECTION 4: TABS & SWITCHING VIEW
+   ========================================================================== */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tab {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 10px 14px;
+  border-radius: 11px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* Mengubah tampilan tab & section saat aktif */
+.tab.active {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+
+/* ==========================================================================
+   SECTION 5: KOMPONEN KARTU, GRID & STATISTIK
+   ========================================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.stat label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat strong {
+  font-size: 27px;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Kelas pewarnaan indikator angka */
+.green {
+  color: var(--accent);
+}
+.red {
+  color: var(--danger);
+}
+.amber {
+  color: var(--warn);
+}
+
+/* ==========================================================================
+   SECTION 6: STASIUN CHARGING & KARTU SLOT
+   ========================================================================== */
+.station {
+  margin-top: 18px;
+}
+
+.station-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.station-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.station-head span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.slot {
+  padding: 17px;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.slot-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slot h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Indikator titik status (Dot) */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent); /* Default: Tersedia (Hijau) */
+}
+
+/* Mengubah warna dot sesuai status slot */
+.slot.busy .dot {
+  background: #dc5b5b;
+} /* Sibuk/Mengisi (Merah) */
+.slot.reserve .dot {
+  background: #d79a30;
+} /* Direservasi (Kuning) */
+.slot.warn .dot {
+  background: #d79a30;
+} /* Peringatan (Kuning) */
+
+.slot .status {
+  font-weight: 800;
+  margin: 12px 0 4px;
+}
+
+.slot p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 12px;
+  min-height: 30px;
+}
+
+/* ==========================================================================
+   SECTION 7: TOMBOL & ELEMEN INTERAKTIF
+   ========================================================================== */
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-weight: 800;
+  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.secondary {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.btn.danger {
+  background: #fff0f0;
+  color: var(--danger);
+  border: 1px solid #f1caca;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SECTION 8: PANEL ACTIVITY, CALLOUT DEPOSIT & TABEL ADMIN
+   ========================================================================== */
+.panel {
+  margin-top: 18px;
+}
+.panel h2 {
+  font-size: 18px;
+  margin: 0 0 14px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+.meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Status Badges (Pill) */
+.pill {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--surface2);
+}
+
+.pill.red {
+  background: #fff0f0;
+  color: var(--danger);
+}
+.pill.green {
+  background: #e9f7ef;
+  color: var(--accent);
+}
+.pill.amber {
+  background: #fff6df;
+  color: var(--warn);
+}
+
+/* Box Info Deposit (Callout) */
+.callout {
+  margin-top: 18px;
+  background: #173a29;
+  color: white;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.callout h3 {
+  margin: 0 0 5px;
+}
+.callout p {
+  margin: 0;
+  color: #cfe5d8;
+  font-size: 13px;
+}
+
+.deposit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.deposit input {
+  width: 150px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c8d6cd;
+  font: inherit;
+}
+
+/* Tabel Admin Monitor */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.alert {
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff7e5;
+  border: 1px solid #f0dfb7;
+  color: #76520d;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   SECTION 9: RESPONSIVE DESIGN (DESAIN TAMPILAN HP / TABLET)
+   ========================================================================== */
+@media (max-width: 800px) {
+  .grid,
+  .slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .balance {
+    min-width: 0;
+  }
+  .table {
+    display: block;
+    overflow: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .grid,
+  .slots {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+}
